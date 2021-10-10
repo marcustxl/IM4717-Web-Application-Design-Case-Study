@@ -74,6 +74,5 @@ function selectedMenu(){
   var icedCappuccinoSubtotal = document.getElementById('iced-cappuccino-subtotal');
   icedCappuccinoSubtotal.value = parseFloat(icedCappucinoSelection) * parseFloat(icedCappucinoQuantity);
 
-
   document.getElementById('total').value = parseFloat(justJavaSubtotal.value) + parseFloat(cafeSubtotal.value) + parseFloat(icedCappuccinoSubtotal.value);
 }
