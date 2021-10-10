@@ -5,43 +5,9 @@
 	<title>JavaJam Coffee House</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="style.css">
+	<script src="javascript.js"></script>
 
-	<script>
-		// function inputCheck(input) {
-		// 	switch (input.id) {
-		// 		case 'name':
-		// 			var nameRegex = /^([A-za-z\s]+)$/;
-		// 			if (!nameRegex.test(input.value)) {
-		// 				alert('Please enter a valid name');
-		// 				document.getElementById('name').value = "";
-		// 			};
-		// 			break;
-		// 		case 'email':
-		// 			var emailRegex =  /^[\w\.-]+@([\w]+\.){1,3}([\w]){2,3}$/;
-		// 			if (!emailRegex.test(input.value)) {
-		// 				alert('Please enter a valid email');
-		// 			}else{
-		// 				return true;
-		// 			};
-		// 			// var emailexp = /^[\w\.-]+@([\w]+\.){1,3}([\w]){2,3}$/;
-		// 			// if(email.length <= 0) {
-		// 			// 	alert('Email cannot be empty!');
-		// 			// 	return false;
-		// 			// } else if(emailexp.test(input.value)) {
-		// 			// 	return true;
-		// 			// } else {
-		// 			// 	alert('Not a valid email format.');
-		// 			// 	return false
-		// 			// }
-		// 			break;
-		// 		case 'date':
-		// 			if (new Date(input.value) < new Date()) {
-		// 				alert('Please select a start date that\'s after today');
-		// 				document.getElementById('date').valueAsDate = null;
-		// 			};
-		// 			break;
-		// 	}
-		// }
+	<!-- <script>
 		function validateForm(){
 			if(validateName() == false){
 				event.preventDefault();
@@ -57,33 +23,36 @@
 			var nameRegex = /^([A-za-z\s]+)$/;
 			if (!nameRegex.test(name)) {
 				alert('Please enter a valid name');
-				
+				document.getElementById("name").value = "";
+				return false;
 			}
 		}
 
 		function validateEmail(){
 			var email = document.getElementById("email").value;
 			var emailexp = /^[\w\.-]+@([\w]+\.){1,3}([\w]){2,3}$/;
-			if(email.length <= 0) {
-				alert('Email cannot be empty!');
-				return false;
-			} else if(emailexp.test(email)) {
+			if(emailexp.test(email)) {
 				return true;
 			} else {
 				alert('Not a valid email format.');
+				document.getElementById("email").value = "";
 				return false
 			}
 		}
 
 		function checkStartDate(){
 			var date = document.getElementById('date').valueAsDate;
-			if (new Date(date) < new Date()) {
+			var startDate = new Date(date);
+			var today = new Date();
+			var tomorrow = new Date();
+			tomorrow.setDate(today.getDate() + 1);
+			if ( startDate < tomorrow) {
 				alert('Please select a start date that\'s after today');
+				document.getElementById("date").value = null;
+				return false;
 			};
 		}
-
-	</script>
-
+	</script> -->
 </head>
 
 <body>
@@ -111,21 +80,21 @@
 					<tr>
 						<td>*Name:</td>
 						<td>
-							<input type="text" id="name" name="name" value="" placeholder="Enter your name here" required><br>
+							<input type="text" oninput="validateName(this)" id="name" name="name" value="" placeholder="Enter your name here" required><br>
 						</td>
 					</tr>
 
 					<tr>
 						<td>*Email:</td>
 						<td>
-							<input type="email" id="email" name="email"  placeholder="Enter your Email-ID here " required><br>
+							<input type="email" onblur="validateEmail(this)" id="email" name="email"  placeholder="Enter your Email-ID here " required><br>
 						</td>
 					</tr>
 
 					<tr>
 						<td>Start Date:</td>
 						<td>
-							<input type="date" id="date" name="date"><br>
+							<input type="date" oninput="checkStartDate(this)" id="date" name="date"><br>
 						</td>
 					</tr>
 
@@ -140,7 +109,7 @@
 
 				<br>
 				<input type="reset" value="Clear"><br>
-				<br><input type="submit" onclick="validateForm()" value="Apply Now">
+				<br><input type="submit" onclick="validateForm(event)" value="Apply Now">
 
 			</form>
 		</div>
