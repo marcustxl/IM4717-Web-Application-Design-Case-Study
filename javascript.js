@@ -9,7 +9,7 @@ The start date cannot be from today and the past.
 The experience field cannot be empty (This can be done in HTML5)
 */
 
-//form.script
+//Form script
 function validateForm(event){
   if(validateName() == false){
     event.preventDefault();
@@ -48,7 +48,7 @@ function checkStartDate(){
   var today = new Date();
   var tomorrow = new Date();
   tomorrow.setDate(today.getDate() + 1);
-  if ( startDate < tomorrow) {
+  if ( startDate < today) {
     alert('Please select a start date that\'s after today');
     document.getElementById("date").value = null;
     return false;
@@ -73,6 +73,7 @@ function selectedMenu(){
 
   var icedCappuccinoSubtotal = document.getElementById('iced-cappuccino-subtotal');
   icedCappuccinoSubtotal.value = parseFloat(icedCappucinoSelection) * parseFloat(icedCappucinoQuantity);
+
 
   document.getElementById('total').value = parseFloat(justJavaSubtotal.value) + parseFloat(cafeSubtotal.value) + parseFloat(icedCappuccinoSubtotal.value);
 }
