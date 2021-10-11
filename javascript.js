@@ -32,7 +32,7 @@ function validateName(){
 
 function validateEmail(){
   var email = document.getElementById("email").value;
-  var emailexp = /^[\w\.-]+@([\w]+\.){1,3}([\w]){2,3}$/;
+  var emailexp = /^[\w\.-]+@([\w]+\.){1,3}([a-z]){2,3}$/;
   if(emailexp.test(email)) {
     return true;
   } else {
