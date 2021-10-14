@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>JavaJam Coffee House</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style.css">
+	<script src="javascript.js"></script>
+</head>
+
+<body>
+	<div id="wrapper">
+		<header>
+			<img src="assets/javalogo.jpg" class="imgcenter"> <!--from google-->
+		</header>
+		<nav id="leftcolumn">
+			<a href="index.html">Home</a><br>
+			<a href="menu.html">Menu</a><br>
+			<a href="music.html">Music</a><br>
+			<a href="jobs.html">Jobs</a><br>
+		</nav>
+
+		<div class="content">
+		<h2>Coffee at JavaJam</h2>
+					<table id="menu" border="1">
+
+						<tr>
+							<th>Just Java</th>
+							<td>Regular house blend, decaffinated coffee, or flavor of the day.<br>
+								<input type="radio" name="just-java" value="2" onchange="selectedMenu()" checked/>
+								<strong>Endless Cup $2.00</td>
+								<td><input type="text" placeholder="Enter Quantity" id="just-java-qty" value=0  onchange="selectedMenu()" size="4"/></td>
+								<td><input type="text" id="just-java-subtotal" value=0 size="4"/></td>
+						</tr>
+
+						<tr>
+							<th>Cafe Au Lait</th>
+							<td>House blended coffee infused into a smooth, steamed milk.<br>
+								<input type="radio" name="cafe-au-lait" value="2" onchange="selectedMenu()" checked/>
+								<strong>Single $2.00
+								<input type="radio" name="cafe-au-lait" value="3" onchange="selectedMenu()"/>
+								<strong>Double $3.00</td>
+								<td><input type="text" placeholder="Enter Quantity" id="cafe-au-lait-qty" value=0 onchange="selectedMenu()" size="4"/></td>
+			          			<td><input type="text" id="cafe-au-lait-subtotal" value=0 size="4"/></td>
+						</tr>
+
+						<tr>
+							<th>Iced Cappucino</th>
+							<td>Sweetened espresso blended with icy-cold milk and served in chilled glass.<br>
+							<input type="radio" name="iced-cappuccino" value="4.75" onchange="selectedMenu()" checked/>
+							<strong>Single $4.75
+							<input type="radio" name="iced-cappuccino" value="5.75" onchange="selectedMenu()"/>
+							<strong>Double $5.75</td>
+							<td width="50"><input type="text" placeholder="Enter Quantity" id="iced-cappuccino-qty" value=0 onchange="selectedMenu()" size="4"/></td>
+							<td ><input type="text" id="iced-cappuccino-subtotal" value=0 size="4"/></td>
+					 </tr>
+
+					 <tr>
+						<td></td><td></td><td style="text-align:center">Total Price: </td>
+					 	<td width="50px"><input type="text" id="total" value=0 size="4"/></td>
+				  </tr>
+				</table>
+			</div>
+
+			<footer>
+				<small>
+					<i>Copyright &copy; 2014 JavaJam Coffee House
+					</i>
+				</small>
+				<br>
+				<a href="mailto:marcus@too.com">
+					marcus@too.com
+				</a>
+			</footer>
+	</body>
+
+	</html>
