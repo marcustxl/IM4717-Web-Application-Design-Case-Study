@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>JavaJam Coffee House</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style.css">
+	<script src="javascript/job_validation.js"></script>
+	<style>
+	label {
+		text-align: right;
+		padding-right:30px;
+		margin-top: 10px;
+		width:100px;
+		float:left;
+	}
+	input, textarea {
+	    margin-top:10px;
+	}
+	</style>
+</head>
+
+<body>
+<header>
+</header>
+	<div class="wrapper">
+		<div class="navbar">
+			<nav>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="menu.php">Menu</a></li>
+					<li><a href="music.html">Music</a></li>
+					<li><a href="jobs.html">Jobs</a></li>
+					<br>
+					<li><a href="update.php">Update</a></li>
+					<li><a href="sales.php">Sales</a></li>
+			</ul>
+	</nav>
+</div>
+		<div class="content">
+			<h1>Jobs at JavaJam</h1>
+			<p style="color:#7d5540;">
+				Want to work at JavaJam? Fill out the form below to start your application. Required fields are marks with an
+				asterisk *</p>
+
+			<form name="form" action="php/show_post.php" method="post">
+				<label>*Name:</label>
+				<input type="text" id="name" required oninput="validateName(this)"><br>
+				<label>*E-mail:</label>
+				<input type="email" id="email" required onblur="validateEmail(this)"><br>
+				<label>Start date:</label>
+				<input type="date" id="date" oninput="checkStartDate(this)"><br>
+				<label>*Experience:</label>
+				<textarea id="Exp" rows="4" cols="40" required></textarea><br>
+				<br>
+				<input type="reset" value="Clear">
+				<br><input type="submit" onclick="validateForm(event)" value="Apply Now">
+
+			</form>
+		</div>
+	</div>
+		<footer>
+			<br>
+			<small>
+				<i>Copyright &copy; 2014 JavaJam Coffee House
+				</i>
+			</small>
+			<br>
+			<a href="mailto:marcus@too.com">
+				marcus@too.com
+			</a>
+		</footer>
+</body>
+</html>
