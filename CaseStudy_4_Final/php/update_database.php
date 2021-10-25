@@ -1,3 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>JavaJam Coffee House</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="../style.css">
+  <script type="text/javascript" src="javascript/update_price.js"></script>
+</head>
+<body onload="init();">
+<header>
+</header>
+	<div class="wrapper">
+		<div class='navbar'>
+			<nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../menu.php">Menu</a></li>
+            <li><a href="../music.html">Music</a></li>
+            <li><a href="../jobs.html">Jobs</a></li>
+            <br>
+            <li><a href="../update.php">Update</a></li>
+            <li><a href="../sales.php">Sales</a></li>
+        </ul>
+	    </nav>
+		</div>
+		<div class="content">
+      <h1>Latest Updates</h1>
+
 <?php
 
 // Create connection
@@ -66,5 +94,19 @@ if (isset($_GET['IC_ckb'])){
 }
 
 mysqli_close($conn);
-header("refresh:1; url=../../CaseStudy_4_Final/update.php");
 ?>
+</div>
+</div>
+		<footer>
+			<br>
+			<small>
+				<i>Copyright &copy; 2014 JavaJam Coffee House
+				</i>
+			</small>
+			<br>
+			<a href="mailto:marcus@too.com">
+				marcus@too.com
+			</a>
+		</footer>
+</body>
+</html>

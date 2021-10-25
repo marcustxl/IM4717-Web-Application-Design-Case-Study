@@ -1,3 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>JavaJam Coffee House</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="../style.css">
+  <script type="text/javascript" src="javascript/update_price.js"></script>
+</head>
+<body onload="init();">
+<header>
+</header>
+	<div class="wrapper">
+		<div class='navbar'>
+			<nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../menu.php">Menu</a></li>
+            <li><a href="../music.html">Music</a></li>
+            <li><a href="../jobs.html">Jobs</a></li>
+            <br>
+            <li><a href="../update.php">Update</a></li>
+            <li><a href="../sales.php">Sales</a></li>
+        </ul>
+	    </nav>
+		</div>
+		<div class="content">
+      <h1>Your Orders</h1>
 <?php
 //Ensure that database connection is good before any code is executed.
 $conn = mysqli_connect("localhost", "f32ee", "f32ee", "f32ee");
@@ -7,7 +34,6 @@ if (!$conn) {
 	return;
 }
 //Declare variables
-
 $JJ_qty=$_GET['Item1_Quantity'];
 $CAL_qty=$_GET['Item2_Quantity'];
 $IC_qty=$_GET['Item3_Quantity'];
@@ -16,7 +42,7 @@ $IC_radio=$_GET['IC_radio'];
 
 if($JJ_qty == 0 && $CAL_qty == 0 && $IC_qty == 0) {
 	echo "Select products you'd like to order before submitting.<br>";
-	return;
+
 }
 
 else {
@@ -26,6 +52,7 @@ else {
 		return;
 	}
 
+//Check radio buttons
 	if ($CAL_radio == "CAL_Single") {
 		$CALS_qty = $CAL_qty;
 		$CALD_qty = 0;
@@ -43,6 +70,7 @@ else {
 		$ICD_qty = $IC_qty;
 	}
 
+	//Insert orders into javajam_orders(quantity) & javajam_sales (price)
 	$sql = "INSERT INTO f32ee.javajam_orders(orders_id, JJ_orders, CALS_orders, CALD_orders,
 												ICS_orders, ICD_orders)
 	VALUES (NULL, $JJ_qty, $CALS_qty, $CALD_qty, $ICS_qty, $ICD_qty);";
@@ -56,7 +84,6 @@ else {
 	$CALD_total = $CALD_qty*getCurrentPrice(3);
 	$ICS_total = $ICS_qty*getCurrentPrice(4);
 	$ICD_total = $ICD_qty*getCurrentPrice(5);
-
 
 	$sql = "INSERT INTO f32ee.javajam_sales(sales_id, JJ_sales, CALS_sales, CALD_sales,
 												ICS_sales, ICD_sales)
@@ -85,13 +112,12 @@ else {
 		$totalOrder .= "$ICD_qty Cappuccino Double for $$ICD_total<br><br>";
 	}
 	echo $totalOrder;
-	$menuLink = "<a href='../../CaseStudy_4_Final/menu.php'>Click here</a>";
-	echo "Redirecting you to Menu page in 10 seconds. $menuLink to return to menu page now.";
-	header("refresh:10;url=../../CaseStudy_4_Final/menu.php");
-	return;
+	// $menuLink = "<a href='../../CaseStudy_4_Final/menu.php'>Click here</a>";
+	// echo "Redirecting you to Menu page in 10 seconds. $menuLink to return to menu page now.";
+	// header("refresh:10;url=../../CaseStudy_4_Final/menu.php");
+	// return;
 
 }
-
 
 function getCurrentPrice($product_id) {
 	$conn = mysqli_connect("localhost", "f32ee", "f32ee");
@@ -109,3 +135,18 @@ function getCurrentPrice($product_id) {
 }
 
 ?>
+</div>
+</div>
+		<footer>
+			<br>
+			<small>
+				<i>Copyright &copy; 2014 JavaJam Coffee House
+				</i>
+			</small>
+			<br>
+			<a href="mailto:marcus@too.com">
+				marcus@too.com
+			</a>
+		</footer>
+</body>
+</html>
