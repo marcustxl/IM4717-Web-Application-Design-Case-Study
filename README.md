@@ -15,5 +15,5 @@ Case Study 3 & 4 - Implentation of the following functions:
 - Menu Update
 - Price Update
 - Sales Report
-- 
+
 *Refer to "EE4717 Case Study 3 and 4.pdf" for more info.
